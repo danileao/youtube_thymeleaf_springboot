@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+<link rel="stylesheet" href="css/style.css">
+
+  <title>Cadastro de tarefa</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/create">Cadastro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/list">Listagem</a>
+          </li>
+          
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+
+
+
+  <form method="POST" action="/create" th:object="${task}">
+    <input type="hidden" th:value="${task.id}" name="id" />
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Nome da tarefa</label>
+      <input type="text" class="form-control" name="name" th:value="${task.name}">
+     
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Data de execução</label>
+      <input type="text" class="form-control" name="date" th:value="${{task.date}}">
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>
+</body>
+</html>
